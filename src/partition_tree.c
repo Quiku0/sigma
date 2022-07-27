@@ -161,8 +161,8 @@ struct tree* tree_create_tree(int i,int m,struct graph* rand_graph,int* nb_cycle
 
 struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,int nb_next,PyObject* call,PyObject* f,PyObject* v,PyObject* MG){
     //create the tree of algorithm 1 of the document: Exact Matching of Random Graphs with Constant Correlation
-    PyObject *arglist;
-    PyObject *result;
+    PyObject *arglist=NULL;
+    PyObject *result=NULL;
     struct tree* trees=(struct tree*)malloc(sizeof(struct tree));
     struct files file;
     int* vue=calloc(graph_get_n(rand_graph),sizeof(int));
