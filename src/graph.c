@@ -93,7 +93,7 @@ int graph_set_n(struct graph* gp, long value){
 }
 
 int graph_set_p(struct graph* gp,double p){
-    if(p>1|p<0){
+    if(p>1||p<0){
         fprintf(stderr,  "P is between [0,1].\n");
         return -1;
     }else{
