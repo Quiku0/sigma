@@ -93,13 +93,13 @@ static PyObject *Sigma(PyObject *self,PyObject *args, PyObject *kwds){
             return NULL;
         }
         b=algorithm_2(G1,G2, m);
-        for(int i=0;i<matrix_Size(b);i++){
+        /*for(int i=0;i<matrix_Size(b);i++){
             for(int j=0;j<matrix_Size(b);j++){
                 printf("%lf ",matrix_Val_i_j(b,i,j));
             }
             printf("\n");
         }
-        printf("\n");
+        printf("\n");*/
         retour=algorithm_3(b);
         return retour;
     }else{

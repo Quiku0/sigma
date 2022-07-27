@@ -47,8 +47,8 @@ struct matrix_0_1* algorithm_2(struct graph* T,struct graph* T_2,int m){
         //printf("%d\n",i);
         f2[i]=tree_create_tree(i,m,T_2,&nb_cycle,&nb_ar_sans_signe);
     }
-    printf("%lf\n",graph_estim_mean(T));
-    tree_post_tree(f1[2]);
+    //printf("%lf\n",graph_estim_mean(T));
+    //tree_post_tree(f1[2]);
     ramdom_J(m,w,J,2);
     /*J[0][0]=1;
     J[0][1]=1;

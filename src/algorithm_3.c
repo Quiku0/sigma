@@ -13,14 +13,12 @@ static void supprime(int * V,int ind,int *tvm){
 }
 
 PyObject *algorithm_3(struct matrix_0_1* b){
-    int V1[matrix_Size(b)];
     int tV1=matrix_Size(b);
     int V2[matrix_Size(b)];
     int tV2=matrix_Size(b);
     PyObject *pi=PyList_New(matrix_Size(b));
     int tpi=0;
     for (int i=0;i<b->size;i++){
-        V1[i]=i;
         V2[i]=i;
     }
     int i = 0;
