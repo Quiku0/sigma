@@ -11,7 +11,7 @@
 #include "numpy/arrayobject.h"
 
 static PyObject *Sigma(PyObject *self,PyObject *args, PyObject *kwds){
-    static char *kwlist[]={"G1","G2","prof","p","nbchild","class","f","v",NULL};
+    static char *kwlist[]={"G1","G2","prof","p","nbchild","clas","f","v",NULL};
     double p=-1;
     int nbchild=-1,m;
     struct matrix_0_1* b;
@@ -93,6 +93,9 @@ static PyObject *Sigma(PyObject *self,PyObject *args, PyObject *kwds){
             return NULL;
         }
         b=algorithm_2(G1,G2, m);
+        if(b==NULL){
+            return NULL;
+        }
         /*for(int i=0;i<matrix_Size(b);i++){
             for(int j=0;j<matrix_Size(b);j++){
                 printf("%lf ",matrix_Val_i_j(b,i,j));
@@ -119,7 +122,9 @@ static PyObject *Sigma(PyObject *self,PyObject *args, PyObject *kwds){
         }
         Py_XINCREF(tempv);
         b=algorithm_2_2(G1,G2,m,nbchild,tempcall,tempf,tempv,temp3,temp1);
-        
+        if(b==NULL){
+            return NULL;
+        }
         return algorithm_3(b);
     }
 }

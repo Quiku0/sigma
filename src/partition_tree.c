@@ -159,7 +159,7 @@ struct tree* tree_create_tree(int i,int m,struct graph* rand_graph,int* nb_cycle
     return trees;
 }
 
-struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,int nb_next,PyObject* call,PyObject* f,PyObject* v,PyObject* MG){
+struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,long nb_next,PyObject* call,PyObject* f,PyObject* v,PyObject* MG){
     //create the tree of algorithm 1 of the document: Exact Matching of Random Graphs with Constant Correlation
     PyObject *arglist=NULL;
     PyObject *result=NULL;
@@ -192,14 +192,17 @@ struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,int nb_next
             for (int j=0;j<graph_get_n(rand_graph);j++){
                 if(graph_adjacent_vertice(rand_graph,nodes->partition[t],j)&& !vue[j]){
                     vue[j]=1;
-                    arglist = Py_BuildValue("(Oi)",MG,j);
+                    arglist = Py_BuildValue("(Oid)",MG,j,graph_get_p(rand_graph));
                     result =PyObject_CallObject(call,arglist);
                     if(result==NULL){
                         return NULL;
                     }
+                    
                     long enpla=PyLong_AsLong(result);
-                    if(enpla<-1&&enpla>nodes->nb_next){
-                        fprintf(stderr,"error fonction");
+                    //printf("%ld\n",enpla);
+                    //printf("%ld\n",nb_next);
+                    if(enpla<-1||enpla>=nb_next){
+                        fprintf(stderr,"error classify fonction");
                         return NULL;
                     }else if(enpla>-1){
                         nodes->nexts[enpla]->partition=(int *)realloc(nodes->nexts[enpla]->partition,(nodes->nexts[enpla]->nb_vertice+1)*sizeof(int));
@@ -238,14 +241,14 @@ struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,int nb_next
                 }
             }
         }
-        arglist = Py_BuildValue("(OO)",MG,pi);
+        arglist = Py_BuildValue("(OOd)",MG,pi,graph_get_p(rand_graph));
         result =PyObject_CallObject(f,arglist);
         if(result==NULL){
             return NULL;
         }
         nodes->fsi=PyFloat_AsDouble(result);
         Py_DECREF(arglist);
-        arglist = Py_BuildValue("(OO)",MG,pi);
+        arglist = Py_BuildValue("(OOd)",MG,pi,graph_get_p(rand_graph));
         result =PyObject_CallObject(v,arglist);
         if(result==NULL){
             return NULL;

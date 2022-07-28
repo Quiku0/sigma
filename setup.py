@@ -10,10 +10,10 @@ Sigma=Extension("sigmaV1",["src/Sigma.c","src/algorithm_2.c","src/algorithm_3.c"
                     include_dirs=['include',incdir])
 setup(
     name='SiGma',
-   version='1.0',
-   description='',
-   author='Maxence Buisson',
-   author_email='',
-   url='https://www.ibm.com',
+    version='1.0',
+    description='',
+    author='Maxence Buisson',
+    author_email='',
+    url='',
     ext_modules=[Sigma]
     )

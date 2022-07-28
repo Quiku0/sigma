@@ -1,18 +1,19 @@
+#!/usr/bin/python3
 from turtle import shape
 import sigmaV1
 import numpy as np
-def normal_erdo(A,i):
-    if (sum(A[i])<A.shape[1]*0.3) :
+def normal_erdo(A,i,x):
+    if (sum(A[i])<A.shape[1]*x) :
         return 0
     else :
         return 1
-def f(graph_util,liste):
+def f(graph_util,liste,p):
     retour=0
     for i in liste:
-        retour+=sum(A[i])-A.shape[1]*0.3-1
+        retour+=sum(A[i])-A.shape[1]*p-1
     return retour
-def v(graph_util,liste):
-    retour=len(liste)*A.shape[1]*0.3*(1-0.3)
+def v(graph_util,liste,p):
+    retour=len(liste)*A.shape[1]*p*(1-p)
     return retour
 A=np.zeros((10,10))
 A[0,7]=1
@@ -54,6 +55,6 @@ y=sigmaV1.sigma(A,A,2)
 for i in range(len(y)):
     print(i,"=",y[i])
 print()
-y=sigmaV1.sigma(A,A,2,0.3,2,normal_erdo,f,v)
+y=sigmaV1.sigma(A,A,2,0.3,2,clas=normal_erdo,f=f,v=v)
 for i in range(len(y)):
     print(i,"=",y[i])

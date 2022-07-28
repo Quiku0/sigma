@@ -123,14 +123,14 @@ struct matrix_0_1* algorithm_2_2(struct graph* T,struct graph* T_2,int m,int nbc
     }
     //tree_post_tree(f1[2]);
     ramdom_J(m,w,J,nbchild);
-    J[0][0]=1;
+    /*J[0][0]=1;
     J[0][1]=1;
     J[1][0]=1;
     J[1][1]=0;
     J[2][0]=0;
     J[2][1]=1;
     J[3][0]=0;
-    J[3][1]=0;
+    J[3][1]=0;*/
     if(matrix_Set_Size(b,n)){
         return NULL;
     }
