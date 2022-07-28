@@ -46,7 +46,7 @@ void tree_post_sign(struct node* nodes);
  /*post the node signature in the terminal*/
 void tree_post_tree(struct tree* trees);
 // post all information of all tree nodes in the terminal
-struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,int ,PyObject *,PyObject *,PyObject *,PyObject* MG);
+struct tree* tree_create_tree_2(int i,int m,struct graph* rand_graph,long ,PyObject *,PyObject *,PyObject *,PyObject* MG);
 //create the tree of algorithm 1 of the document: Exact Matching of Random Graphs with Constant Correlation
 /*i is the vertax of the graph
 m is a depth parameter
