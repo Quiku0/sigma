@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from turtle import shape
 import sigmaV1
 import numpy as np
 def normal_erdo(A,i,x):
