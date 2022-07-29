@@ -12,7 +12,10 @@ A longer description of your project goes here...
 Note
 ====
 Commande pour installer le package
-Necessaire : numpy, un compilateur c,setuptools
-Aller à la racine du paquet et executer
-python3 setup.py install
-
+Necessaire : numpy, un compilateur c(Type gcc: regarder sur internet gcc macos/Windows),setuptools
+Aller à la racine du paquet et executer (pour mac et linux):
+sudo python3 setup.py install
+Rentrer votre code de votre ordinateur.
+Tous est normlement bon
+Pour tous problème envoyer moi un mail au:
+maxence.buisson2@orange.fr
